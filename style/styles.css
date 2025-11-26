@@ -1,0 +1,102 @@
+@font-face {
+    font-family: Museosans;
+    src: url("./../assets/font/museosans.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: VarelaRound;
+    src: url("./../assets/font/VarelaRound.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Museosans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+nav {
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    min-height: 60px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.div-logo {
+    flex: 0 0 auto;
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+#logo {
+    background: url("./../assets/img/Artboard 3.svg") no-repeat center;
+    background-size: contain;
+    width: 110px;
+    height: 110px;
+}
+
+.navigNav {
+    display: flex;
+    flex: 2;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    min-width: 300px;
+    margin-left: 170px;
+}
+
+.rightNavPart {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    min-width: 200px;
+}
+
+@media (max-width: 900px) {
+    nav {
+        padding: 15px 20px;
+        justify-content: center;
+        min-height: 80px;
+    }
+    
+    .div-logo {
+        position: static;
+        transform: none;
+        text-align: center;
+    }
+    
+    #logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .navigNav {
+        margin-left: 0;
+    }
+    
+    .navigNav, .rightNavPart {
+        flex: 0 0 100%;
+        justify-content: center;
+        gap: 15px;
+    }
+}
