@@ -1,102 +1,122 @@
-@font-face {
-    font-family: Museosans;
-    src: url("./../assets/font/museosans.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: VarelaRound;
-    src: url("./../assets/font/VarelaRound.ttf") format("truetype");
-}
-
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
-body {
-    font-family: 'Museosans', sans-serif;
-    scroll-behavior: smooth;
-}
-
-nav {
-    background-color: red;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    flex-wrap: wrap;
-    gap: 20px;
-    position: relative;
-    min-height: 60px;
-}
-
-nav a {
+a{
     text-decoration: none;
-    color: black;
+    color: #1f2937;
 }
 
-.div-logo {
-    flex: 0 0 auto;
-    position: absolute;
-    left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+img{
+    object-fit: cover;
 }
 
-#logo {
-    background: url("./../assets/img/Artboard 3.svg") no-repeat center;
-    background-size: contain;
-    width: 110px;
-    height: 110px;
+body{
+    background: #f3f4f6;
 }
 
-.navigNav {
+.navbar{
     display: flex;
-    flex: 2;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    min-width: 300px;
-    margin-left: 170px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
 }
 
-.rightNavPart {
+.navbar__logo {
+    background-image: url("./../assets/img/Artboard-3.svg");
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center;
+    width: 90px;
+    height: 50px;
+    display: block;
+}
+
+.navbar__logo i{
+    font-size: 30px;
+}
+
+.navbar__menu,
+.footer__links{
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
+    gap: 20px;
+}
+
+.navbar__link,
+.footer__links a{
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+
+.navbar__link:hover,
+.footer__links a:hover{
+    color: #000;
+}
+
+.navbar__actions{
+    display: flex;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
-    min-width: 200px;
 }
 
-@media (max-width: 900px) {
-    nav {
-        padding: 15px 20px;
-        justify-content: center;
-        min-height: 80px;
-    }
-    
-    .div-logo {
-        position: static;
-        transform: none;
-        text-align: center;
-    }
-    
-    #logo {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .navigNav {
-        margin-left: 0;
-    }
-    
-    .navigNav, .rightNavPart {
-        flex: 0 0 100%;
-        justify-content: center;
-        gap: 15px;
-    }
+.navbar__location h5{
+    font-weight: 500;
+    color: #6b7280;
+    font-size: 12px;
 }
+
+.navbar__location p{
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.navbar__actions .btn{
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+#notification {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    z-index: 2;
+    opacity: 0;
+    margin-top: -100px;
+    transition: all 0.8s ease;
+    cursor: pointer;
+    min-width: 300px;
+    text-align: center;
+}
+
+#notification.show {
+    opacity: 0.95;
+    margin-top: 50px;
+}
+
+#theNotification {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 992px) {
+    
+    .navbar{
+        padding: 20px 30px;
+    }}
+
+
+@media screen and (max-width: 768px) {
+    
+    .navbar__actions{
+        display: none;
+    }}

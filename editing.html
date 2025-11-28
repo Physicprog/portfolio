@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +8,28 @@
     <link rel="icon" type="image/png" href="./assets/img/Artboard 2.svg">
 </head>
 <body>
-    <nav>
-        <div class="div-logo">
-            <div id="logo"></div>
+    <!-- Notification -->
+    <div id="notification">
+        <p id="theNotification"></p>
+    </div>
+
+    <nav class="navbar">
+        <a href="#" class="navbar__logo"></a>
+        <div class="navbar__menu">
+            <a href="#" class="navbar__link">Accueil</a>
+            <a href="#" class="navbar__link">Projets</a>
+            <a href="#" class="navbar__link">Compétence</a>
+            <a href="#" class="navbar__link" id="CVDownalod">Mon CV</a>
         </div>
-        <div class="navigNav">
-            <a href="#">Accueil</a>
-            <a href="#">À propos</a>
-            <a href="#">Mes projets</a>
-            <a href="#">Mes compétences</a>
-        </div>
-        <div class="rightNavPart">
-            <div class="GlobalTime">13h85</div>
-            <a href="#">Me contacter</a>
-            <a href="#">Mon CV</a>
+
+        <div class="navbar__actions">
+            <div class="navbar__location">
+                <h5>France, Normandie</h5>
+                <p id="currentTime">6:18:31 pm</p>
+            </div>
+            <button class="btn">Contactez-moi</button>
         </div>
     </nav>
-
 
     <script src="./js/main.js"></script>
 </body>
