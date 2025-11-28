@@ -1,36 +1,75 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editing</title>
-    <link rel="stylesheet" href="./style/styles.css">
-    <link rel="icon" type="image/png" href="./assets/img/Artboard 2.svg">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: https:;
+        font-src 'self' data:;
+        connect-src 'self';
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+    " />
+    
+    <link rel="stylesheet" href="./style/styles.css" />
+    <link rel="icon" type="image/png" href="./assets/img/Artboard 2.svg"/>
 </head>
-<body>
-    <!-- Notification -->
-    <div id="notification">
-        <p id="theNotification"></p>
+
+<body class="theme-light">
+    <div id="loader-container">
+        <div class="loader"></div>
+        <h1>Chargement...</h1>
     </div>
 
-    <nav class="navbar">
-        <a href="#" class="navbar__logo"></a>
-        <div class="navbar__menu">
-            <a href="#" class="navbar__link">Accueil</a>
-            <a href="#" class="navbar__link">Projets</a>
-            <a href="#" class="navbar__link">Compétence</a>
-            <a href="#" class="navbar__link" id="CVDownalod">Mon CV</a>
-        </div>
-
-        <div class="navbar__actions">
-            <div class="navbar__location">
-                <h5>France, Normandie</h5>
-                <p id="currentTime">6:18:31 pm</p>
+    <div id="main-content">
+        <nav class="navbar" role="navigation" aria-label="Navigation principale">
+            <a class="navbar__logo" id="switch" href="#" aria-label="Logo"></a>
+            <div class="navbar__menu">
+                <a href="#accueil" class="navbar__link">Accueil</a>
+                <a href="#projets" class="navbar__link">Projets</a>
+                <a href="#competence" class="navbar__link">Compétence</a>
+                <a href="#" class="navbar__link" id="CVDownload" rel="noopener noreferrer">Mon CV</a>
             </div>
-            <button class="btn">Contactez-moi</button>
-        </div>
-    </nav>
 
-    <script src="./js/main.js"></script>
+            <div class="navbar__actions">
+                <div class="navbar__location">
+                    <h5>France, Normandie</h5>
+                    <p id="currentTime"></p>
+                </div>
+                <button class="btn" type="button">Contactez-moi</button>
+            </div>
+        </nav>
+
+        <section class="div-hero">
+          <div class="hero_Image"></div>
+          
+        </section>
+
+
+        <div id="notification" role="alert" aria-live="polite">
+            <p id="theNotification"></p>
+        </div>
+    </div>
+
+    <script src="./js/8gnS8ghns.js"></script>
+    <noscript>
+    <meta http-equiv="refresh" content="0;js-disabled">
+    </noscript>
+    <style>
+        * {user-select: none;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;}
+        input, textarea {user-select: text;-webkit-user-select: text;}
+    </style>
+
 </body>
 </html>

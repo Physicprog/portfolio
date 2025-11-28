@@ -1,0 +1,113 @@
+function SendNotification(noti, returnit = true, color_green = true) {
+    const notification = document.getElementById("notification");
+    const theNotification = document.getElementById("theNotification");
+
+    if (!notification || !theNotification) return;
+
+    if (color_green) {
+        notification.style.borderTop = "5px solid var(--color-accent)";
+        notification.style.boxShadow = "0 0 12px rgba(109, 255, 30, 0.4)";
+    } else {
+        notification.style.borderTop = "5px solid #ff0000";
+        notification.style.boxShadow = "0 0 12px rgba(255, 0, 0, 0.4)";
+    }
+
+    theNotification.innerHTML = sanitizeHTML(noti); // Utilisation de sanitizeHTML
+
+    notification.classList.add("show");
+
+    notification.onclick = function(e) {
+        e.preventDefault();
+        notification.classList.remove("show");
+    };
+
+    if (returnit) {
+        setTimeout(() => notification.classList.remove("show"), 3000);
+    }
+}
+
+function calculerHeure() {
+    const now = new Date();
+    const secondes = now.getSeconds().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const heures = now.getHours().toString().padStart(2, '0');
+
+    const timeElement = document.getElementById("currentTime");
+    if (timeElement) {
+        timeElement.textContent = `${heures}:${minutes}:${secondes}`;
+    }
+}
+
+const CVBtn = document.getElementById("CVDownload"); 
+if (CVBtn) {
+    CVBtn.addEventListener('click', e => {
+        e.preventDefault();
+        SendNotification("Téléchargement du CV non disponible pour le moment 😔", true, false);
+    });
+}
+
+const switchBtn = document.getElementById('switch');
+if (switchBtn) {
+    switchBtn.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.className = document.body.className === 'theme-light' ? 'theme-dark' : 'theme-light';
+    });
+}
+
+const loaderContainer = document.getElementById("loader-container");
+if (loaderContainer) {
+    setTimeout(() => {
+        loaderContainer.classList.add("fade-out");
+        setTimeout(() => loaderContainer.remove(), 500);
+    }, 1200);
+}
+
+calculerHeure();
+setInterval(calculerHeure, 1000);
+
+(function() {
+    'use strict';
+
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("selectstart", e => e.preventDefault());
+    document.addEventListener("dragstart", e => e.preventDefault());
+
+    document.addEventListener("keydown", e => {
+        const key = e.key.toLowerCase();
+        if (e.key === "F12" || e.keyCode === 123) e.preventDefault();
+        if (e.ctrlKey && e.shiftKey && ["i","j","c"].includes(key)) e.preventDefault();
+        if (e.ctrlKey && key === "u") e.preventDefault();
+        if (e.ctrlKey && ["s", "p"].includes(key)) e.preventDefault();
+        if (e.ctrlKey && e.shiftKey && ["s", "p"].includes(key)) e.preventDefault();
+    });
+
+    const detectDevTools = () => {
+        const threshold = 160;
+        if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+            document.body.innerHTML = '<h1>Accès refusé</h1>';
+        }
+    };
+    setInterval(detectDevTools, 1000);
+
+    const checkDebugger = () => {
+        const start = performance.now();
+        debugger;
+        if (performance.now() - start > 100) window.location.href='about:blank';
+    };
+    setInterval(checkDebugger, 1000);
+
+    (function() {
+        const originalLog = console.log;
+        console.log = function() { originalLog('Tu veux voir quoi là ?'); };
+        console.clear();
+        console.error = console.log;
+        console.warn = console.log;
+        console.info = console.log;
+        console.debug = console.log;
+    })();
+
+    window.addEventListener("beforeprint", e => e.preventDefault());
+    window.addEventListener("dragover", e => e.preventDefault());
+    window.addEventListener("drop", e => e.preventDefault());
+
+})();

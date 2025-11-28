@@ -1,24 +1,100 @@
-*{
+@font-face {
+    font-family: Museosans;
+    src: url(./../assets/font/museosans.ttf);
+}
+#loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #12112c;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 2s ease;
+}
+
+#loader-container h1{
+    color: white;
+    font-family: Museosans, 'sans-sherif';
+    padding: 20px;
+    font-size: 20px;
+}
+
+#loader-container.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #00ADB5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+
+    }
+}
+
+.theme-light {
+    --color-primary: #0060df;
+    --color-secondary: #f5f5f5;
+    --color-accent: #fd6f53;
+    --font-color: #1a1a1a;
+    --navbarFooter-color: #dcdbdb;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-dark {
+    --color-primary: #00ADB5;
+    --color-secondary: #1a1a1a;
+    --color-accent: #12cdea;
+    --font-color: #EEEEEE;
+    --navbarFooter-color: #262626;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
-    color: #1f2937;
+    color: var(--font-color);
 }
 
-img{
+img {
     object-fit: cover;
 }
 
-body{
-    background: #f3f4f6;
+html {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--color-primary) var(--color-secondary);
 }
 
-.navbar{
+body {
+    background: var(--color-secondary);
+    color: var(--font-color);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    background-color: var(--navbarFooter-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,56 +104,85 @@ body{
 .navbar__logo {
     background-image: url("./../assets/img/Artboard-3.svg");
     background-repeat: no-repeat;
-    background-size: contain; 
+    background-size: contain;
     background-position: center;
     width: 90px;
     height: 50px;
     display: block;
+    cursor: pointer;
+    transition: filter 0.3s ease;
 }
 
-.navbar__logo i{
+.theme-dark .navbar__logo {
+    filter: invert(1);
+}
+
+.navbar__logo i {
     font-size: 30px;
 }
 
 .navbar__menu,
-.footer__links{
+.footer__links {
     display: flex;
     gap: 20px;
 }
 
 .navbar__link,
-.footer__links a{
+.footer__links a {
     font-size: 14px;
     font-weight: 500;
+    color: var(--font-color);
     transition: all 0.5s ease;
 }
 
 .navbar__link:hover,
-.footer__links a:hover{
-    color: #000;
+.footer__links a:hover {
+    color: var(--color-primary);
 }
 
-.navbar__actions{
+.navbar__actions {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.navbar__location h5{
+.navbar__location h5 {
     font-weight: 500;
-    color: #6b7280;
+    color: var(--font-color);
     font-size: 12px;
 }
 
-.navbar__location p{
+.navbar__location p {
     font-size: 11px;
     font-weight: 600;
+    color: var(--font-color);
 }
 
-.navbar__actions .btn{
-    padding: 6px 10px;
+.navbar__actions .btn {
+    padding: 6px 8px;
     font-size: 12px;
     font-weight: 500;
+    color: var(--font-color);
+    background-color: var(--color-secondary);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar__actions .btn:hover {
+    background-color: var(--font-color);
+    color: var(--color-secondary);
+    font-weight: bold;
+    transform: scale(1.03);
+    border-color: var(--color-secondary);
+}
+
+.navbar__actions .btn:active {
+    background-color: var(--color-secondary);
+    color: var(--font-color);
+    transform: scale(0.97);
 }
 
 #notification {
@@ -85,38 +190,45 @@ body{
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
+    background-color: var(--color-secondary);
+    color: var(--font-color);
     padding: 15px 25px;
     border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 2;
     opacity: 0;
     margin-top: -100px;
     transition: all 0.8s ease;
     cursor: pointer;
+    user-select: none;
     min-width: 300px;
     text-align: center;
 }
 
 #notification.show {
-    opacity: 0.95;
+    opacity: 0.98;
     margin-top: 50px;
 }
 
 #theNotification {
-    color: #333;
+    color: var(--font-color);
     font-size: 16px;
     font-weight: 500;
 }
 
-@media screen and (max-width: 992px) {
-    
-    .navbar{
-        padding: 20px 30px;
-    }}
 
+
+
+
+@media screen and (max-width: 992px) {
+    .navbar {
+        padding: 20px 30px;
+    }
+}
 
 @media screen and (max-width: 768px) {
-    
-    .navbar__actions{
+    .navbar__actions {
         display: none;
-    }}
+    }
+}
