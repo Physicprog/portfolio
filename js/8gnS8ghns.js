@@ -131,15 +131,16 @@ setInterval(calculerHeure, 1000);
 
 
 const links = document.querySelectorAll('a');
-
 links.forEach(link => {
   link.onclick = (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) window.scrollTo(0, target.offsetTop - 80);
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) window.scrollTo(0, target.offsetTop - 80);
+    }
   };
 });
-
 
 
 
