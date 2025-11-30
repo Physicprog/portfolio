@@ -5,11 +5,11 @@ function SendNotification(noti, returnit = true, color_green = true) {
   if (!notification || !theNotification) return;
 
   if (color_green) {
-    notification.style.borderTop = "5px solid var(--color-accent)";
-    notification.style.boxShadow = "0 0 12px rgba(109, 255, 30, 0.4)";
+    notification.style.borderTop = "5px solid #7CFC00";
+    notification.style.boxShadow = "0 0 8px rgba(124, 252, 0, 0.3)";
   } else {
-    notification.style.borderTop = "5px solid #ff0000";
-    notification.style.boxShadow = "0 0 12px rgba(255, 0, 0, 0.4)";
+    notification.style.borderTop = "5px solid #FF4500";
+    notification.style.boxShadow = "0 0 8px rgba(255, 69, 0, 0.3)";
   }
 
   theNotification.innerHTML = noti;
@@ -44,7 +44,7 @@ function calculerHeure() {
     timeElement.textContent = `${heures}:${minutes}:${secondes}`;
   }
 }
-
+//LES NOTIFSSSS
 const CVBtn = document.getElementById("CVDownload");
 if (CVBtn) {
   CVBtn.addEventListener("click", (e) => {
@@ -57,6 +57,58 @@ if (CVBtn) {
   });
 }
 
+const skillbtn = document.getElementById("skillbtn");
+if (skillbtn) {
+  skillbtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    SendNotification(
+      "Mes connaissances acquises (🔵) et en apprentissage (🔴)",
+      true,
+      true
+    );
+  });
+}
+
+const projectbtn = document.getElementById("projectbtn");
+if (projectbtn) {
+  projectbtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    SendNotification("Mes projets accomplis", true, true);
+  });
+}
+
+//Notifs unique a chaque bouton
+const buttons = document.querySelectorAll(".project-card .btn");
+buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const AppName = btn.closest(".project-card").querySelector("h5").innerText;
+    SendNotification(
+      `Cette page document sur ${AppName} est en cours de création`,
+      true,
+      false
+    );
+  });
+});
+
+function onSubmit(token) {
+  document.getElementById("demo-form").submit();
+}
+
+//la rotation des icons liens
+const linkedin = document.querySelector(".back");
+
+window.addEventListener("scroll", () => {
+  const rotation = window.scrollY * 0.8;
+  linkedin.style.transform = `rotate(${rotation}deg)`;
+});
+const git = document.querySelector(".imgLogo2");
+window.addEventListener("scroll", () => {
+  const rotation = window.scrollY * (-0.5);
+  git.style.transform = `rotate(${rotation}deg)`;
+});
+
+//switch de theme
 const switchBtn = document.getElementById("switch");
 if (switchBtn) {
   switchBtn.addEventListener("click", (e) => {
@@ -76,6 +128,20 @@ if (loaderContainer) {
 
 calculerHeure();
 setInterval(calculerHeure, 1000);
+
+
+const links = document.querySelectorAll('a');
+
+links.forEach(link => {
+  link.onclick = (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) window.scrollTo(0, target.offsetTop - 80);
+  };
+});
+
+
+
 
 /*
 (function() {

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editing</title>
-    <!--
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editing</title>
+  <script src="https://cdn.jsdelivr.net/npm/friendly-challenge@0.9.8/widget.min.js" async defer></script>
+
+  <!--
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
@@ -20,73 +23,233 @@
         base-uri 'self';
         form-action 'self';
     " />-->
-    <link rel="stylesheet" href="./style/styles.css" />
-    <link rel="icon" type="image/png" href="./assets/img/Artboard 2.svg" />
-  </head>
+  <link rel="stylesheet" href="./style/styles.css" />
+  <link rel="icon" type="image/png" href="./assets/img/Artboard 2.svg" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <body class="theme-light">
-    <div id="loader-container">
-      <div class="loader"></div>
-      <h1>Chargement...</h1>
-    </div>
 
-    <div id="main-content">
-      <nav class="navbar" role="navigation" aria-label="Navigation principale">
-        <a class="navbar__logo" id="switch" href="#" aria-label="Logo"></a>
-        <div class="navbar__menu">
-          <a href="#accueil" class="navbar__link">Accueil</a>
-          <a href="#projets" class="navbar__link">Projets</a>
-          <a href="#competence" class="navbar__link">Compétence</a>
-          <a href="#" class="navbar__link" id="CVDownload">Mon CV</a>
+</head>
+
+<body class="theme-light">
+  <div id="loader-container">
+    <div class="loader"></div>
+    <h1>Chargement...</h1>
+  </div>
+
+  <div id="main-content">
+    <nav class="navbar" role="navigation" aria-label="Navigation principale">
+      <a class="navbar__logo" id="switch" href="#" aria-label="Logo"></a>
+      <div class="navbar__menu">
+        <a href="#accueil" class="navbar__link">Accueil</a>
+        <a href="#competences" class="navbar__link">Compétences</a>
+        <a href="#projets" class="navbar__link">Projets</a>
+        <a href="#" class="navbar__link" id="CVDownload">CV</a>
+      </div>
+
+      <div class="navbar__actions">
+        <div class="navbar__location">
+          <h5>France, Normandie</h5>
+          <p id="currentTime"></p>
         </div>
+        <a href="#contact" class="btn" type="button">Contactez-moi</a>
+      </div>
+    </nav>
 
-        <div class="navbar__actions">
-          <div class="navbar__location">
-            <h5>France, Normandie</h5>
-            <p id="currentTime"></p>
-          </div>
 
-          <button class="btn" type="button">Contactez-moi</button>
+    <a href="./index.html" class="back"></a>
+
+    <section class="hero" id="accueil">
+      <div class="hero__content">
+        <div alt="Profile Image" class="hero__image"></div>
+        <h2>Khylian Griffon</h2>
+      </div>
+
+      <div class="hero__intro">
+        <h4>Monteur Vidéo & Motion Designer</h4>
+        <p>Passionné de montage vidéo, de motion design et de création de contenus visuels percutants, je transforme des
+          rushs bruts en histoires captivantes. Spécialisé dans les effets spéciaux ainsi que dans les vidéos courtes et
+          dynamiques, je donne vie à des productions modernes et impactantes.</p>
+        <div class="hero__actions">
+              <a href="#projets" class="btn btn--secondary">VOIR MES PROJETS</a>
+              <a href=" #contact" class="btn">EN SAVOIR PLUS</a>
         </div>
-      </nav>
+      </div>
 
-    <section class="hero">
-        <div class="hero__content">
-            <div alt="Profile Image" class="hero__image"></div>
-            <h2>Khylian Griffon</h2>
-        </div>
+      <div class="hero__socials">
+        <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/khylian-griffon"></a>
+        <a class="github" target="_blank" href="https://github.com/Physicprog"></a>
+      </div>
 
-        <div class="hero__intro">
-            <h4>Monteur Vidéo & Motion Designer</h4>
-            <p>Spécialisé dans le montage vidéo, le motion design et la création de contenus visuels impactants. Je transforme des rushs bruts en histoires captivantes pour diffusion web et événementielle.</p>
-            <div class="hero__actions">
-                <button class="btn">VOIR MES PROJETS</button>
-                <button class="btn btn--secondary">EN SAVOIR PLUS</button>
+    </section>
+
+
+
+    <section id="competences" class="showcase" data-aos="fade-up">
+      <div class="showcase__header">
+        <h3>Compétences</h3>
+        <button class="btn" id="skillbtn">Toutes mes compétences techniques et créatives</button>
+      </div>
+
+      <div class="showcase_categories">
+        <section class="category">
+          <div class="category__projects">
+            <div class="projects-container">
+              <div class="project-card">
+                <div class="aftereffect"></div>
+                <div class="project-card__info">
+                  <h5>After Effect</h5>
+                  <p>Depuis 2020</p>
+                </div>
+                <p class="project-card__desc">......</p>
+                <button class="btn" id="prjBtn">Voir plus -></button>
+              </div>
+
+
+              <div class="project-card">
+                <div class="premierepro"></div>
+                <div class="project-card__info">
+                  <h5>Premiere Pro</h5>
+                  <p>date</p>
+                </div>
+                <p class="project-card__desc">......</p>
+                <button class="btn" id="prjBtn">Voir plus -></button>
+              </div>
+
+              <div class="project-card">
+                <div class="davinciresolve"></div>
+                <div class="project-card__info">
+                  <h5>Davinci Resolve</h5>
+                  <p>date</p>
+                </div>
+                <p class="project-card__desc">......</p>
+                <button class="btn" id="prjBtn">Voir plus -></button>
+              </div>
+
+              <div class="project-card">
+                <div class="blender"></div>
+                <div class="project-card__info">
+                  <h5>Blender</h5>
+                  <p>date</p>
+                </div>
+                <p class="project-card__desc">......</p>
+                <button class="btn" id="prjBtn">Voir plus -></button>
+              </div>
+
+              <div class="project-card">
+                <div class="ue5"></div>
+                <div class="project-card__info">
+                  <h5>UNreal Engine 5</h5>
+                  <p>date</p>
+                </div>
+                <p class="project-card__desc">......</p>
+                <button class="btn" id="prjBtn">Voir plus -></button>
+              </div>
             </div>
-        </div>
-
-        <div class="hero__socials">
-            <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/khylian-griffon"></a>
-            <a class="github" target="_blank" href="https://github.com/Physicprog"></a>
-        </div>
+          </div>
+        </section>
+      </div>
     </section>
 
 
 
 
-
-
-
-
-
-
-    
-      <div id="notification" role="alert" aria-live="polite">
-        <p id="theNotification"></p>
+    <section id="projets" class="showcaseProjet" data-aos="zoom-in-right">
+      <div class="showcase__header">
+        <h3>Mes Projets</h3>
+        <button class="btn" id="projectbtn">Toutes mes réalisations en montage et motion design.</button>
       </div>
+
+      <div class="showcase_categories">
+        <section class="category">
+          <div class="category__projects">
+            <div class="project-card">
+              <img src="assets/item-1.png" alt="Portfolio 1" class="project-card__image">
+              <div class="project-card__info">
+                <h5>Projet 1</h5>
+                <p>2023</p>
+              </div>
+              <p class="project-card__desc">Description du projet 1.</p>
+              <button class="btn">Voir plus -></button>
+            </div>
+            <div class="project-card">
+              <img src="assets/item-2.png" alt="Portfolio 2" class="project-card__image">
+              <div class="project-card__info">
+                <h5>Projet 2</h5>
+                <p>2023</p>
+              </div>
+              <p class="project-card__desc">Description du projet 2.</p>
+              <button class="btn">Voir plus -></button>
+            </div>
+            <div class="project-card">
+              <img src="assets/item-3.png" alt="Portfolio 3" class="project-card__image">
+              <div class="project-card__info">
+                <h5>Projet 3</h5>
+                <p>2023</p>
+              </div>
+              <p class="project-card__desc">Description du projet 3.</p>
+              <button class="btn">Voir plus -></button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" data-aos="fade-up">
+      <div class="contact__bio">
+        <h3>Khylian Griffon</h3>
+        <h4>À propos de moi</h4><br>
+        <p>
+          Développeur et vidéaste passionné par les métiers du digital, je me spécialise dans la création digitale,
+          le développement web et le montage vidéo. J'ai collaboré avec des entreprises et associations telles que
+          <strong>GIVE 5</strong> et <strong>Trihoof</strong> et je poursuis actuellement ma formation à l'école SupInfo
+          afin de renforcer mes compétences. Je suis à la recherche d'un poste de développeur web où je pourrai mettre à
+          profit ma créativité et mes compétences techniques pour créer des applications web innovantes.
+        </p>
+      </div>
+
+
+      <div class="contact__form">
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+          <input type="hidden" name="access_key" value="62fa18fd-3cf0-4a38-abdb-63a9689b731f">
+
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <div class="h-captcha" data-captcha="true"></div>
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
+          <button type="submit">Envoyer</button>
+        </form>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__brand">
+        <p>© 2025 Khylian Griffon. Tous droits réservés.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#accueil" class="navbar__link">Accueil</a>
+        <a href="#projets" class="navbar__link">Projets</a>
+        <a href="#competences" class="navbar__link">Compétences</a>
+        <a href="#contact" class="navbar__link">Compétences</a>
+      </div>
+    </footer>
+
+
+    <div id="notification" role="alert" aria-live="polite">
+      <p id="theNotification"></p>
     </div>
-    <script src="./js/8gnS8ghns.js"></script>
-    <!--
+  </div>
+  <script src="./js/8gnS8ghns.js"></script>
+  <!--
     <noscript>
       <meta http-equiv="refresh" content="0;js-disabled" />
     </noscript>
@@ -103,5 +266,14 @@
         -webkit-user-select: text;
       }
     </style>-->
-  </body>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1700,
+    });
+  </script>
+
+</body>
+
 </html>
