@@ -33,6 +33,7 @@ function SendNotification(noti, returnit = true, color_green = true) {
   }
 }
 
+
 function calculerHeure() {
   const now = new Date();
   const secondes = now.getSeconds().toString().padStart(2, "0");

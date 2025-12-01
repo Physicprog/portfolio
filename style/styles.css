@@ -464,6 +464,37 @@ body {
   margin: 0 auto;
 }
 
+.javascript {
+  background-image: url("./../assets/img/javascript.png");
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+.html{
+  background-image: url("./../assets/img/html.png");
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+.css{
+  background-image: url("./../assets/img/css.png");
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+
 .premierepro {
   background-image: url("./../assets/img/PrLogo.svg");
   background-size: 50px 50px;
